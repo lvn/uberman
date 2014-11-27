@@ -1,0 +1,17 @@
+{
+  "name": "uberman",
+  "version": "0.0.0",
+  "description": "framework for quickly developing pragmatic REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "http",
+    "express"
+  ],
+  "author": "Elvin Yung",
+  "license": "MIT"
+}
