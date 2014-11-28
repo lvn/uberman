@@ -12,6 +12,8 @@ Uberman is an opinionated Node.js HTTPS JSON REST API framework powered by Expre
 * Pragmatic JSON responses
 
 ## Quickstart
+Install [from NPM](https://www.npmjs.org/package/uberman).
+
 Suppose we want to create a REST API for a blog, which exposes a single endpoint for blog posts. The code to do that is as follows:
     
 ```javascript
