@@ -43,4 +43,30 @@ This creates an API with an endpoint route `blog-posts`, backed by a MongoDB col
 * an update operation on `PUT /blog-posts/:id`
 * a destroy operation on `DELETE /blog-posts/:id`
 
+
+
 By default, Uberman APIs listen on port 443, and forces all connections to be over SSL.
+
+## Requests
+By default, Uberman accepts only JSON request bodies, and returns JSON response bodies. A typical response is as follows:
+
+```json
+{
+    "timestamp": 1417150033477,
+    "request_uuid": "6fedffea-51ab-49d6-8fdd-0fa081742a45",
+    "status": 200,
+    "payload": [
+        {
+            "_id": "5477f7cea92619e0ab9d327a",
+            "__v": 0,
+            "created": "2014-11-28T04:19:26.108Z"
+        },
+        {
+            "_id": "5477f9dfef1ca2caacdd863a",
+            "__v": 0,
+            "created": "2014-11-28T04:28:15.859Z"
+        }
+    ]
+}
+```
+
