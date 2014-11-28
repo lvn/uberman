@@ -40,3 +40,5 @@ This creates an API with an endpoint route `blog-posts`, backed by a MongoDB col
 * a retrieve operation on `GET /blog-posts/:id`
 * an update operation on `PUT /blog-posts/:id`
 * a destroy operation on `DELETE /blog-posts/:id`
+
+By default, Uberman APIs listen on port 443, and forces all connections to be over SSL.
