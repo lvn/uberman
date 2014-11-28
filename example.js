@@ -11,4 +11,4 @@ blogAPI.addEndpoint('blogPost', {
     upvotes: Number
 });
 
-blogAPI.listen();
+blogAPI.listen(1337);
