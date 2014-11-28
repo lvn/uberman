@@ -5,11 +5,11 @@
 Develop and deploy REST APIs quickly with less boilerplate code.
 
 ## Introduction
-Uberman is an opinionated Node.js REST API framework powered by Express.js and MongoDB. 
+Uberman is an opinionated Node.js HTTPS JSON REST API framework powered by Express.js and MongoDB. 
 
 ## Features
 * Extremely easy generation of resources and endpoints
-* Pragmatic responses
+* Pragmatic JSON responses
 
 ## Quickstart
 Suppose we want to create a REST API for a blog, which exposes a single endpoint for blog posts. The code to do that is as follows:
