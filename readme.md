@@ -31,7 +31,7 @@ blogAPI.addEndpoint('blogPosts', {
     upvotes: Number
 });
 
-blogAPI.listen(1337);
+blogAPI.listen();
 ```
 
 This creates an API with an endpoint route `blog-posts`, backed by a MongoDB collection named `blogPosts`. The following default operations on the endpoint, routed to `/blog-posts`, are also generated:
