@@ -1,11 +1,12 @@
 {
   "name": "uberman",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "framework for quickly developing pragmatic REST APIs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/elvinyung/uberman",
   "keywords": [
     "rest",
     "api",
@@ -23,6 +24,10 @@
     "string": "~2.2.0",
     "express-limiter": "~1.3.1"
   },
-  "author": "Elvin Yung",
+  "author": {
+    "name": "Elvin Yung",
+    "email": "foss@elvinyung.com",
+    "homepage": "elvinyung.com"
+  },
   "license": "MIT"
 }
