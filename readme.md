@@ -37,34 +37,29 @@ blogAPI.listen();
 ```
 
 This creates an API with an endpoint route `blog-posts`, backed by a MongoDB collection named `blogPosts`. The following default operations on the endpoint, routed to `/blog-posts`, are also generated:
-* a query operation on `GET /blog-posts`
-* a create operation on `POST /blog-posts`
-* a retrieve operation on `GET /blog-posts/:id`
-* an update operation on `PUT /blog-posts/:id`
-* a destroy operation on `DELETE /blog-posts/:id`
-
-
+* a **query** operation on `GET /blog-posts`. This is queriable through the query parameters.
+* a **create** operation on `POST /blog-posts`. This accepts only valid JSON with the `Content-Type` header as `application/json`.
+* a **retrieve** operation on `GET /blog-posts/:id`.
+* an **update** operation on `PUT /blog-posts/:id`. This accepts only valid JSON with the `Content-Type` header as `application/json`.
+* a **destroy** operation on `DELETE /blog-posts/:id`
 
 By default, Uberman APIs listen on port 443, and forces all connections to be over SSL.
 
-## Requests
-By default, Uberman accepts only JSON request bodies, and returns JSON response bodies. A typical response is as follows:
+## Requests and Responses
+By default, Uberman accepts only JSON request bodies (with the `Content-Type` header as `application/json`), and returns JSON response bodies. A typical response is as follows:
 
 ```json
 {
-    "timestamp": 1417150033477,
-    "request_uuid": "6fedffea-51ab-49d6-8fdd-0fa081742a45",
+    "timestamp": "2014-11-28T05:18:31.507Z",
+    "request_uuid": "c95fef02-9b13-4661-84d7-21431815dc42",
     "status": 200,
     "payload": [
         {
-            "_id": "5477f7cea92619e0ab9d327a",
+            "_id": "5478048fabb051f5b765e74b",
+            "title": "this is a test blogpost",
+            "body": "hello world!!!!!!!!!1",
             "__v": 0,
-            "created": "2014-11-28T04:19:26.108Z"
-        },
-        {
-            "_id": "5477f9dfef1ca2caacdd863a",
-            "__v": 0,
-            "created": "2014-11-28T04:28:15.859Z"
+            "created": "2014-11-28T05:13:51.220Z"
         }
     ]
 }
