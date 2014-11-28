@@ -1,6 +1,6 @@
 # Uberman
-## A better way to REST
-### by [Elvin Yung](https://github.com/elvinyung)
+### A better way to REST
+#### by [Elvin Yung](https://github.com/elvinyung)
 
 Develop and deploy REST APIs quickly with less boilerplate code.
 
