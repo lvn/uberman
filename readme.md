@@ -16,9 +16,12 @@ Suppose we want to create a REST API for a blog, which exposes a single endpoint
     
 ```javascript
 var uberman = require('uberman');
-var blogAPI = uberman();
+var blogAPI = uberman({
+    keyPath: // PATH TO SSL KEY
+    certPath: // PATH TO SSL CERT
+});
 
-blogAPI.addEndpoint('blogPost', {
+blogAPI.addEndpoint('blogPosts', {
     title: String,
     body: String,
     created: {
@@ -28,17 +31,12 @@ blogAPI.addEndpoint('blogPost', {
     upvotes: Number
 });
 
-blogAPI.listen(3000);
+blogAPI.listen(1337);
 ```
 
-This creates an API with an endpoint `blogPost`, backed by a MongoDB collection named `blogPost`. The following default operations on the endpoint, routed to `/blog-post`, are also generated:
+This creates an API with an endpoint route `blog-posts`, backed by a MongoDB collection named `blogPosts`. The following default operations on the endpoint, routed to `/blog-posts`, are also generated:
 * a query operation on `GET /blog-posts`
 * a create operation on `POST /blog-posts`
 * a retrieve operation on `GET /blog-posts/:id`
 * an update operation on `PUT /blog-posts/:id`
 * a destroy operation on `DELETE /blog-posts/:id`
-
-## Requests
-Uberman uses Morgan to perform logging of all operations. 
-
-## Responses
