@@ -47,7 +47,8 @@ In the context of the quickstart example, the route `blogPosts` was created in t
 * a **replace** operation on `PUT /blog-posts/:id`. This accepts only valid JSON with the `Content-Type` header as `application/json`.
 * an **update** operation on `PATCH /blog-posts/:id`. This accepts only valid JSON with the `Content-Type` header as `application/json`.
 * a **destroy** operation on `DELETE /blog-posts/:id`
-These operations are compliant with [RFC 2616](https://tools.ietf.org/html/rfc2616) and [RFC 5789](http://tools.ietf.org/html/rfc5789)
+
+These operations are compliant with [RFC 2616](https://tools.ietf.org/html/rfc2616) and [RFC 5789](http://tools.ietf.org/html/rfc5789).
 
 `listen([port], [host])` binds connections in the given host and port to the API. By default, Uberman APIs listen on localhost port 443, and accepts only HTTPS connections.
 
