@@ -2,8 +2,8 @@ var uberman = require('./../..');
 
 // grabs the key and cert from the current directory
 var booksAPI = uberman({
-	keyPath: process.cwd() + '/key.key',
-	certPath: process.cwd() + '/cert.crt'
+  keyPath: process.cwd() + '/key.key',
+  certPath: process.cwd() + '/cert.crt'
 });
 
 // creates an endpoint for books
@@ -14,8 +14,8 @@ booksAPI.addEndpoint('books', {
 
 // creates an endpoint for genres
 booksAPI.addEndpoint('genres', {
-	name: String,
-	books: [uberman.Types.foreignKey('books')]
+  name: String,
+  books: [uberman.Types.foreignKey('books')]
 });
 
 // the passphrase is `password`... try running the app!
