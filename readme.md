@@ -5,11 +5,7 @@
 Develop and deploy REST APIs quickly with less boilerplate code.
 
 ## Introduction
-Uberman is an opinionated Node.js HTTPS JSON REST API framework powered by Express.js and MongoDB. 
-
-## Features
-* Extremely easy generation of resources and endpoints
-* Pragmatic JSON responses
+Uberman is an opinionated Node.js HTTPS JSON REST API framework, powered by Express.js and MongoDB. 
 
 ## Quickstart
 Install [from NPM](https://www.npmjs.org/package/uberman).
@@ -53,7 +49,7 @@ These operations are compliant with [RFC 2616](https://tools.ietf.org/html/rfc26
 `listen([port], [host])` binds connections in the given host and port to the API. By default, Uberman APIs listen on localhost port 443, and accepts only HTTPS connections.
 
 ## Resources
-When you build an endpoint using `addEndpoint(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
+When you build an endpoint using `addEndpoint(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.Types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
 
 ### `String`
 ### `Number`
@@ -79,25 +75,9 @@ Below is an example schema.
 ## Routing
 Uberman dasherizes all endpoint routes, and places them under the API root.
 
-The API root is by default set to `/api/v{version}`, where `{version}` is the API version set in the config, or `0` by default. You can change it using the `root` config field.
+The API root is by default set to `/api/v{version}`, where `{version}` is the API version set in the config, which is 0 by default. You can change it using the `root` config field, or the `version` field if you just want to change the version.
 
 ## Requests and Responses
-By default, Uberman accepts only JSON request bodies (with the `Content-Type` header as `application/json`), and returns JSON response bodies. A typical response body is as follows:
+By default, Uberman accepts only JSON request bodies (with the `Content-Type` header as `application/json`), and returns JSON response bodies. In all cases, the body of the response is unenveloped, and the resource or collection serialized is the entire response body. Any metadata is put in headers. 
 
-```json
-{
-    "timestamp": "2014-11-28T05:18:31.507Z",
-    "request_uuid": "c95fef02-9b13-4661-84d7-21431815dc42",
-    "status": 200,
-    "payload": [
-        {
-            "_id": "5478048fabb051f5b765e74b",
-            "title": "this is a test blogpost",
-            "body": "hello world!!!!!!!!!1",
-            "__v": 0,
-            "created": "2014-11-28T05:13:51.220Z"
-        }
-    ]
-}
-```
-
+Uberman uses HATEOAS in its responses. For Uberman, this means that in response bodies, all foreign keys are represented as hyperlinks to the resource referred to.
