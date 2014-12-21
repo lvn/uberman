@@ -1,6 +1,6 @@
 {
   "name": "uberman",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "framework for quickly developing pragmatic REST APIs",
   "main": "index.js",
   "scripts": {
