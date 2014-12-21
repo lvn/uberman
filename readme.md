@@ -78,6 +78,27 @@ Uberman dasherizes all endpoint routes, and places them under the API root.
 The API root is by default set to `/api/v{version}`, where `{version}` is the API version set in the config, which is 0 by default. You can change it using the `root` config field, or the `version` field if you just want to change the version.
 
 ## Requests and Responses
-By default, Uberman accepts only JSON request bodies (with the `Content-Type` header as `application/json`), and returns JSON response bodies. In all cases, the body of the response is unenveloped, and the resource or collection serialized is the entire response body. Any metadata is put in headers. 
+By default, Uberman accepts only JSON request bodies (with the `Content-Type` header as `application/json`), and returns JSON response bodies. In all cases, the body of the response is unenveloped, and the resource or collection serialized is the entire response body. 
+
+Any metadata is put in headers. This includes things such as the request UUID, the request timestamp, and information about the client's rate limiting.
 
 Uberman uses HATEOAS in its responses. For Uberman, this means that in response bodies, all foreign keys are represented as hyperlinks to the resource referred to.
+
+For example, here is a sample response body to `GET /api/v0/books` in a hypothetical REST API for tracking books:
+
+```json
+[
+    {
+        "_id": "5495041dd71d98000011c9d1",
+        "__v": 0,
+        "title": "Dune",
+        "genre": "https://example.com/api/v0/genres/547a28885761190000fc8814"
+    },
+    {
+        "_id": "5495b13b50d2bd0000368403",
+        "title": "Foundation and Earth",
+        "genre": "https://example.com/api/v0/genres/547a28885761190000fc8814",
+        "__v": 0
+    }
+]
+```
