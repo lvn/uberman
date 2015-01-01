@@ -5,7 +5,7 @@
 Develop and deploy REST APIs quickly with less boilerplate code.
 
 ## Introduction
-Uberman is an opinionated Node.js HTTPS JSON REST API framework, powered by Express.js and MongoDB. 
+Uberman is a framework for building pragmatic RESTful resource-oriented hypermedia-driven APIs, compliant with [RFC 2616](https://tools.ietf.org/html/rfc2616) and [RFC 5789](http://tools.ietf.org/html/rfc5789), and Roy Fielding's original dissertation on [representational state transfer](). It is built upon Express.js and Mongoose/MongoDB. 
 
 ## Quickstart
 Install [from NPM](https://www.npmjs.org/package/uberman).
@@ -49,17 +49,25 @@ These operations are compliant with [RFC 2616](https://tools.ietf.org/html/rfc26
 `listen([port], [host])` binds connections in the given host and port to the API. By default, Uberman APIs listen on localhost port 443, and accepts only HTTPS connections.
 
 ## Resources
-When you build an endpoint using `addEndpoint(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.Types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
+When you build an endpoint using `addEndpoint(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource-type, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.Types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
 
 ### `String`
+Represents a primitive string type, analogous to the built-in [String]() type.
 ### `Number`
+Represents a primitive numerical type, analogous to the built-in [Number]() type.
 ### `Date`
+Represents a primitive datetime type, analogous to the built-in [Date]() type.
 ### `Buffer`
+
 ### `Boolean`
+Represents a primitive boolean type, analogous to the built-in [Boolean]() type.
 ### `Mixed`
 ### `foreignKey`
+Represents a reference to some other resource. In resource representations, a `foreignKey` is serialized as the `_id` field of the resource being referenced. You can declare a `foreignKey` type in schema by using the `foreignKey(ref)` constructor, where `ref` is the name of the endpoint through which the referred resource can be accessed. 
 ### arrays
+
 ### nested data
+Creates 
 
 Below is an example schema.
 
@@ -82,7 +90,7 @@ By default, Uberman accepts only JSON request bodies (with the `Content-Type` he
 
 Any metadata is put in headers. This includes things such as the request UUID, the request timestamp, and information about the client's rate limiting.
 
-Uberman uses HATEOAS in its responses. For Uberman, this means that in response bodies, all foreign keys are represented as hyperlinks to the resource referred to.
+Uberman's uses hypermedia-driven responses to facilitate transition of representational application state. For Uberman APIs, this means that in response bodies, all foreign keys are represented as hyperlinks to the resource referred to.
 
 For example, here is a sample response body to `GET /api/v0/books` in a hypothetical REST API for tracking books:
 
@@ -102,3 +110,9 @@ For example, here is a sample response body to `GET /api/v0/books` in a hypothet
     }
 ]
 ```
+
+## Roadmap
+(Roughly in descending order of priority)
+* local provider-based OAuth 2 authentication server
+* implement envvar based API configuration
+* 
