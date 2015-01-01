@@ -5,10 +5,16 @@
 Develop and deploy REST APIs quickly with less boilerplate code.
 
 ## Introduction
-Uberman is a framework for building pragmatic RESTful resource-oriented hypermedia-driven APIs, compliant with [RFC 2616](https://tools.ietf.org/html/rfc2616) and [RFC 5789](http://tools.ietf.org/html/rfc5789), and Roy Fielding's original dissertation on [representational state transfer](). It is built upon Express.js and Mongoose/MongoDB. 
+Uberman is a framework for building pragmatic RESTful resource-oriented hypermedia-driven APIs, which aims to be compliant with [RFC 2616](https://tools.ietf.org/html/rfc2616) and [RFC 5789](http://tools.ietf.org/html/rfc5789), and ultimately Roy Fielding's original dissertation on [representational state transfer](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm). 
+
+Uberman is built upon Express.js and Mongoose/MongoDB. 
 
 ## Quickstart
-Install [from NPM](https://www.npmjs.org/package/uberman).
+Install [from NPM](https://www.npmjs.org/package/uberman):
+
+```sh
+npm install uberman
+```
 
 Suppose we want to create a REST API for a blog, which exposes a single endpoint for blog posts. The code to do that is as follows:
     
