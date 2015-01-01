@@ -115,4 +115,4 @@ For example, here is a sample response body to `GET /api/v0/books` in a hypothet
 (Roughly in descending order of priority)
 * local provider-based OAuth 2 authentication server
 * implement envvar based API configuration
-* 
+* autodocumentation
