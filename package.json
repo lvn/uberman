@@ -24,7 +24,8 @@
     "redis": "~0.12.1",
     "epsilon-delta": "~0.0.12",
     "passport": "~0.2.1",
-    "http-status": "~0.1.8"
+    "http-status": "~0.1.8",
+    "oauth2orize": "~1.0.1"
   },
   "author": {
     "name": "Elvin Yung",
