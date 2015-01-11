@@ -119,7 +119,8 @@ For example, here is a sample response body to `GET /api/v0/books` in a hypothet
 
 ## Roadmap
 (Roughly in descending order of priority)
+* proper JSON HAL responses
 * local provider-based OAuth 2 authentication server
 * implement envvar based API configuration (done-ish)
-* autodocumentation
 * abstract database read/write component from endpoint operations into a separate pluggable API
+* autodocumentation
