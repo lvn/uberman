@@ -18,4 +18,4 @@ blogAPI.addEndpoint('blogPosts', {
 });
 
 // the passphrase is `password`... try running the app!
-blogAPI.listen(8443);
+blogAPI.listen();
