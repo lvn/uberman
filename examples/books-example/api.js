@@ -7,13 +7,13 @@ var booksAPI = uberman({
 });
 
 // creates an endpoint for books
-booksAPI.addEndpoint('books', {
+booksAPI.resource('books', {
   title: String,
   genre: uberman.Types.foreignKey('genres')
 });
 
 // creates an endpoint for genres
-booksAPI.addEndpoint('genres', {
+booksAPI.resource('genres', {
   name: String,
   books: [uberman.Types.foreignKey('books')]
 });

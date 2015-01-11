@@ -25,7 +25,7 @@ var blogAPI = uberman({
     keyPath: // PATH TO SSL KEY
 });
 
-blogAPI.addEndpoint('blogPosts', {
+blogAPI.resource('blogPosts', {
     title: String,
     body: String,
     created: {
@@ -40,7 +40,7 @@ blogAPI.listen();
 
 `uberman(config)` creates an API and applies the given `config`. `keyCert` and `keyPath` are required fields in the `config` and must respectively point to an TLS/SSL certificate file and its corresponding private key. Other fields in the config will be discussed later in this readme.
 
-`addEndpoint(name, schema[, options])` adds an endpoint in the API with the given schema, and the supplied options. The name is camelized to create the MongoDB collection, and dasherized to create the route. (For example, an endpoint named `xTreMeKoolEndPoint` would be routed to `x-tre-me-kool-end-point`, and have a Mongoose model named `xTreMeKoolEndPoint`.)
+`resource(name, schema[, options])` adds an endpoint in the API with the given schema, and the supplied options. The name is camelized to create the MongoDB collection, and dasherized to create the route. (For example, an endpoint named `xTreMeKoolEndPoint` would be routed to `x-tre-me-kool-end-point`, and have a Mongoose model named `xTreMeKoolEndPoint`.)
 
 In the context of the quickstart example, the route `blogPosts` was created in the `blogAPI`, routed to `/blog-posts`, and backed by a Mongoose model named `blogPosts`. The following default operations on the endpoint, are also generated:
 * a **query** operation on `GET /blog-posts`. This is queriable through parameters in the query string.
@@ -55,7 +55,7 @@ These operations are compliant with [RFC 2616](https://tools.ietf.org/html/rfc26
 `listen([port], [host])` binds connections in the given host and port to the API. By default, Uberman APIs listen on localhost port 443, and accepts only HTTPS connections.
 
 ## Resources
-When you build an endpoint using `addEndpoint(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource-type, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.Types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
+When you build an endpoint using `resource(name, schema[, options])`, you provide a **schema**, which is the structure of the endpoint's resource-type, outlined in terms of the fields that the resource contains. Uberman exposes field types through the `uberman.Types` object, which is essentially a layer on top of the Mongoose `Schema.Types`. The following types are supported:
 
 ### `String`
 Represents a primitive string type, analogous to the built-in [String]() type.
@@ -120,5 +120,6 @@ For example, here is a sample response body to `GET /api/v0/books` in a hypothet
 ## Roadmap
 (Roughly in descending order of priority)
 * local provider-based OAuth 2 authentication server
-* implement envvar based API configuration
+* implement envvar based API configuration (done-ish)
 * autodocumentation
+* abstract database read/write component from endpoint operations into a separate pluggable API

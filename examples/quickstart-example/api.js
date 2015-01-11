@@ -7,7 +7,7 @@ var blogAPI = uberman({
 });
 
 // creates a basic CRUD endpoint
-blogAPI.addEndpoint('blogPosts', {
+blogAPI.resource('blogPosts', {
   title: String,
   body: String,
   created: {
